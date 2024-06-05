@@ -14,4 +14,10 @@ class OrderController extends Controller
         return view('order', compact('orders'));
 
     }
+
+    public function create(){
+    }
+
+    public function update(){
+    }
 }

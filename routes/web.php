@@ -15,9 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\IndexController::class, "index"]);
 
-Route::get('/info', [\App\Http\Controllers\InfoController::class, "index"]);
+Route::get('/info', [\App\Http\Controllers\InfoController::class, "index"])->name('info.index');
 
-Route::get('/Order', [\App\Http\Controllers\OrderController::class, "index"]);
+Route::get('/order', [\App\Http\Controllers\OrderController::class, "index"])->name('order.index');
+Route::get('/order/create', [\App\Http\Controllers\OrderController::class, "create"]);
+Route::get('/order/update', [\App\Http\Controllers\OrderController::class, "update"]);
 
-Route::get('/Storage', [\App\Http\Controllers\StorageController::class, "index"]);
+
+Route::get('/storage', [\App\Http\Controllers\StorageController::class, "index"])->name('storage.index');
+
+Route::get('/main', [\App\Http\Controllers\MainController::class, "index"])->name('main.index');
+
 
