@@ -10,14 +10,34 @@ class OrderController extends Controller
 
     public function index(){
          $orders = Order::all();
-        // dd($order);
         return view('order.index', compact('orders'));
 
+    }
+
+    public function edit(Order $order){
+        return view('order.edit', compact('order'));
+    }
+
+    public function update(Order $order){
+        $data = request()->validate([
+            'table_number' => 'integer',
+            'position' => 'string',
+            'waiter_name' => 'string',
+            'course' => 'integer',
+            'comment' => 'string',
+        ]);
+        $order->update($data);
+        return redirect()-> route('order.show', $order->id);
     }
 
     public function create(){
         return view('order.create');
 
+    }
+
+    public function show(Order $order){
+
+        return view('order.show', compact('order'));
     }
 
     
@@ -28,12 +48,14 @@ class OrderController extends Controller
             'waiter_name' => 'string',
             'course' => 'integer',
             'comment' => 'string',
-            
         ]);
         Order::create($data);
         return redirect()->route('order.index');
     }
 
-    public function update(){
+    public function destroy(Order $order){
+        $order->delete();
+        return redirect()->route("order.index");
     }
+
 }
