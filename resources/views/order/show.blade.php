@@ -7,6 +7,7 @@
         {{$order->table_number}}
         {{$order->waiter_name}}
         {{$order->updated_at}}
+        {{$loyalty->name}}
         <br>
         Комментарий = {{$order->comment}}
     </div>

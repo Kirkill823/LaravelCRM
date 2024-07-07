@@ -38,6 +38,10 @@
                 <span class="input-group-text" id="addon-wrapping">Оставить комментарий(Тест)</span>
                 <input name="comment" type="string" class="form-control" placeholder="Комментарий" aria-label="Username" aria-describedby="addon-wrapping">
             </div>
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">Карта лояльности(Тест)</span>
+                <input name="loyalty_id" type="integer" class="form-control" placeholder="1140 4390 5803 5038" aria-label="Username" aria-describedby="addon-wrapping">
+            </div>
             <!-- <button class="btn btn-primary">Добавить позицию к заказу</button><br> -->
             <button type="submit"class="btn btn-primary">Добавить новый заказ</button>
         </form>

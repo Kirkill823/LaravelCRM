@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string("position");
             $table->integer("course");
             $table->string("waiter_name");
-            $table->string("price");
+            //Убрать  нулл
+            $table->string("price")->nullable();
             $table->timestamps();
 
 

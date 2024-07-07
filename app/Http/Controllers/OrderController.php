@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Loyalty;
 use Illuminate\Http\Request;
 use App\Models\Order;
 
@@ -36,8 +37,8 @@ class OrderController extends Controller
     }
 
     public function show(Order $order){
-
-        return view('order.show', compact('order'));
+        $loyalty = Loyalty::find($order->id);
+        return view('order.show', compact('order', 'loyalty'));
     }
 
     
@@ -48,6 +49,7 @@ class OrderController extends Controller
             'waiter_name' => 'string',
             'course' => 'integer',
             'comment' => 'string',
+            'loyalty_id' => 'int',
         ]);
         Order::create($data);
         return redirect()->route('order.index');

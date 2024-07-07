@@ -14,4 +14,9 @@ class Order extends Model
     protected $table = "orders";
     protected $guarded = false;
 
+    
+    public function loyalty(){
+        return $this->belongsTo(Loyalty::class, 'lotalty_id', 'id');
+    }
+
 }
