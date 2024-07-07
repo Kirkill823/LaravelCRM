@@ -19,8 +19,14 @@ return new class extends Migration
             $table->string("waiter_name");
             $table->string("price");
             $table->timestamps();
-            
+
+
             $table->softDeletes();
+
+            $table->unsignedBigInteger('loyalty_id')->nullable();
+            $table->index('loyalty_id', 'order_loyalty_idx');
+            $table->foreign('loyalty_id', 'order_loyalty_fk')->on('loyalties')->references('id');
+            
         });
     }
 
